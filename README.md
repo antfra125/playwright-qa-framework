@@ -6,20 +6,20 @@ A test automation portfolio project built with **Playwright** and **TypeScript**
 
 ### UI Testing – SauceDemo
 
-* Successful and invalid login scenarios
-* Add product to cart
-* Complete checkout flow
-* Cross-browser execution with Chromium, Firefox and WebKit
+- Successful and invalid login scenarios
+- Add product to cart
+- Complete checkout flow
+- Cross-browser execution with Chromium, Firefox and WebKit
 
 ### API Testing – JSONPlaceholder
 
-* GET user and validate response data
-* Negative GET scenario with 404 validation
-* POST resource and validate response data
+- GET user and validate response data
+- Negative GET scenario with 404 validation
+- POST resource and validate response data
 
 ## Framework Structure
 
-```text id="5d2iyb"
+```text
 playwright-qa-framework/
 ├── fixtures/       # Reusable authenticated setup
 ├── pages/          # Page Object Model
@@ -41,7 +41,7 @@ Environment-specific configuration such as the application base URL is handled t
 
 Clone the repository and install dependencies:
 
-```bash id="atip45"
+```bash
 git clone https://github.com/antfra125/playwright-qa-framework.git
 cd playwright-qa-framework
 npm install
@@ -50,26 +50,34 @@ npx playwright install
 
 Create a `.env` file based on `.env.example`:
 
-```env id="td3e4m"
+```env
 BASE_URL=https://www.saucedemo.com
 ```
 
+## Running Tests
+
 Run the complete test suite:
 
-```bash id="d37fgb"
-npx playwright test
+```bash
+npm test
 ```
 
-Run only the API tests:
+Run all UI tests:
 
-```bash id="7hrut5"
-npx playwright test --project=api
+```bash
+npm run test:ui
+```
+
+Run only API tests:
+
+```bash
+npm run test:api
 ```
 
 Open the HTML report:
 
-```bash id="8g4a3h"
-npx playwright show-report
+```bash
+npm run report
 ```
 
 ## CI
