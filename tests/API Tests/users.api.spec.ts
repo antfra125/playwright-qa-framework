@@ -13,3 +13,16 @@ test('GET user returns correct user data', async ({ request }) => {
     expect(body.id).toBe(1);
     expect(body.username).toBe('Bret');
 });
+
+test('GET non-existing user returns 404', async ({ request }) => {
+
+    const response = await request.get(
+        'https://jsonplaceholder.typicode.com/users/99'
+    );
+
+    expect(response.status()).toBe(404);
+
+    const body = await response.json();
+
+    expect(body).toEqual({});
+});
