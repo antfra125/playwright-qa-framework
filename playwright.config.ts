@@ -26,7 +26,7 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
-    baseURL: process.env.BASE_URL,
+    baseURL: process.env.BASE_URL || 'https://www.saucedemo.com',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
@@ -35,27 +35,30 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
   {
-    name: 'chromium',
-    testIgnore: 'API Tests/**',
-    use: { ...devices['Desktop Chrome'] },
-  },
+  name: 'chromium',
+  testMatch: 'ui/**/*.spec.ts',
+  use: { ...devices['Desktop Chrome'] },
+},
 
-  {
-    name: 'firefox',
-    testIgnore: 'API Tests/**',
-    use: { ...devices['Desktop Firefox'] },
-  },
+{
+  name: 'firefox',
+  testMatch: 'ui/**/*.spec.ts',
+  use: { ...devices['Desktop Firefox'] },
+},
 
-  {
-    name: 'webkit',
-    testIgnore: 'API Tests/**',
-    use: { ...devices['Desktop Safari'] },
-  },
+{
+  name: 'webkit',
+  testMatch: 'ui/**/*.spec.ts',
+  use: { ...devices['Desktop Safari'] },
+},
 
-  {
-    name: 'api',
-    testMatch: '**/API Tests/**/*.spec.ts',
+{
+  name: 'api',
+  testMatch: 'api/**/*.spec.ts',
+  use: {
+    baseURL: 'https://jsonplaceholder.typicode.com',
   },
+},
 
 
     /* Test against mobile viewports. */

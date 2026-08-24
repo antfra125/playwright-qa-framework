@@ -4,10 +4,12 @@ export class InventoryPage {
     readonly page: Page;
     readonly backpackAddToCartButton: Locator;
     readonly cartLink: Locator;
+    readonly inventoryContainer: Locator;
 
     constructor(page: Page) {
         this.page = page;
 
+        this.inventoryContainer = page.locator('[data-test="inventory-container"]');
         this.backpackAddToCartButton = page.locator('[data-test="add-to-cart-sauce-labs-backpack"]');
         this.cartLink = page.locator('[data-test="shopping-cart-link"]');
     }
