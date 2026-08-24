@@ -25,8 +25,8 @@ playwright-qa-framework/
 ├── pages/          # Page Object Model
 ├── test-data/      # Test users and data
 ├── tests/
-│   ├── UI Tests/
-│   └── API Tests/
+│   ├── ui/
+│   └── api/
 ├── .github/        # GitHub Actions workflow
 └── playwright.config.ts
 ```
