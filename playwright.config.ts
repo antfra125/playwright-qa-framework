@@ -34,20 +34,29 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
-    {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
-    },
+  {
+    name: 'chromium',
+    testIgnore: 'API Tests/**',
+    use: { ...devices['Desktop Chrome'] },
+  },
 
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
+  {
+    name: 'firefox',
+    testIgnore: 'API Tests/**',
+    use: { ...devices['Desktop Firefox'] },
+  },
 
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
+  {
+    name: 'webkit',
+    testIgnore: 'API Tests/**',
+    use: { ...devices['Desktop Safari'] },
+  },
+
+  {
+    name: 'api',
+    testMatch: '**/API Tests/**/*.spec.ts',
+  },
+
 
     /* Test against mobile viewports. */
     // {
