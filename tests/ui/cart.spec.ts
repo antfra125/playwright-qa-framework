@@ -8,6 +8,7 @@ test('user can add Sauce Labs Backpack to the cart', async ({ authenticatedPage 
     const cartPage = new CartPage(authenticatedPage);
 
     await inventoryPage.addBackpackToCart();
+    await expect(inventoryPage.cartBadge).toHaveText('1');
     await inventoryPage.openCart();
 
     await expect(cartPage.backpackItem).toBeVisible();

@@ -8,8 +8,12 @@ test('GET user returns correct user data', async ({ request }) => {
 
     const body = await response.json();
 
-    expect(body.id).toBe(1);
-    expect(body.username).toBe('Bret');
+    expect(body).toMatchObject({
+        
+        id: 1,
+        username: 'Bret',
+        email: 'Sincere@april.biz'
+    });
 });
 
 test('GET non-existing user returns 404', async ({ request }) => {

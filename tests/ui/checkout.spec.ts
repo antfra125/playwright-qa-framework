@@ -15,6 +15,7 @@ test('user can complete an order for Sauce Labs Backpack', async ({ authenticate
     await cartPage.startCheckout();
     await checkoutPage.enterInformation('Test', 'User', '12345');
     await checkoutPage.continueToOverview();
+    await expect(checkoutPage.backpackItem).toBeVisible();
     await checkoutPage.completeOrder();
 
     await expect(checkoutPage.confirmationMessage).toHaveText('Thank you for your order!');
