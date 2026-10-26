@@ -1,0 +1,9 @@
+services:
+  tests:
+    build: .
+    init: true
+    ipc: host
+    volumes:
+      - ./playwright-report:/app/playwright-report
+      - ./test-results:/app/test-results
+    command: npx playwright test
